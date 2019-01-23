@@ -5,13 +5,12 @@ transformer and composition with Exception class
 
 ## Structure
 
-- [ ] AST for language
-- [ ] Exception 
-- [ ] Transformer for AST
-- [ ] Transformer for Exception
-- [ ] Final tagless style type class for AST
-- [ ] Laws check
-- [ ] Tests
+* AST Raise for language
+* Exception class MonadRaise 
+* Reduced number of constructors in RaisePromote
+* Context-passing style transformer RaiseCC with ContT employment
+* Monad laws proof
+* Tests
 
 ## Authors
 
@@ -20,4 +19,5 @@ transformer and composition with Exception class
 
 ## Also
 
-See tasks.pgf for more complex task formulation (Russian language)
+⋅⋅⋅See tasks.pgf for more complex task formulation (Russian language)
+⋅⋅⋅Lecturer and supervisor [Дмитрий Косарев](https://github.com/Kakadu)
