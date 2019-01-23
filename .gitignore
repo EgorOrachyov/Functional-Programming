@@ -1,5 +1,8 @@
 /**/*.hi
 /**/*.o
 /**/main
+/**/Run
 /**/.DS_Store
-/.DS_Sore
+Transformer/.stack-work/
+Transformer/transformer.cabal
+/**/*~
