@@ -9,5 +9,5 @@ The following task were completed in the period of studying language as part of 
 * Parser - Some game with haskell strings parsing possibilities
 * Transformer - Monad transformer in constructor and context-passing style with ContT employment
 
-See related folders for tasks code. 
+See related folders for tasks code.  
 Lecturer and supervisor of the courese [Дмитрий Косарев](https://github.com/Kakadu)
