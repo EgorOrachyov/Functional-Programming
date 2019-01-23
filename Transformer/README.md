@@ -1,7 +1,6 @@
 # Haskell-Exam-Task
 
-Interpretive monadig language with AST and 
-transformer and composition with Exception class
+Interpretive monadig language with AST and transformer and composition with Exception class
 
 ## Structure
 
@@ -19,5 +18,5 @@ transformer and composition with Exception class
 
 ## Also
 
-⋅⋅⋅See tasks.pgf for more complex task formulation (Russian language)
-⋅⋅⋅Lecturer and supervisor [Дмитрий Косарев](https://github.com/Kakadu)
+See tasks.pgf for more complex task formulation (Russian language)  
+Lecturer and supervisor [Дмитрий Косарев](https://github.com/Kakadu)
