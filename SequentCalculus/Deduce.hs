@@ -15,7 +15,7 @@ module Deduce where
     
     unapply a_v [] s_v [] = 
         if (null list) then Right $ interpret else Left $ Leaf (a_v ⊢ s_v) where
-            list = [(axiom x y) | x <- a_v, y <- s_v]
+            list = ["x" | x <- a_v, y <- s_v, axiom x y]
             interpret = [(name x, True) | x <- a_v] ++ [(name x, False) | x <- s_v]                    
 
     unapply a_v l@(a:as) s_v ss = 
@@ -32,7 +32,7 @@ module Deduce where
             [(left1,right1), (left2,right2)] ->
                 case unapply (a_v ++ na_v1) (as ++ na_s1) (s_v ++ ns_v1) (ss ++ ns_s1) of
                     Left ls -> case unapply (a_v ++ na_v2) (as ++ na_s2) (s_v ++ ns_v2) (ss ++ ns_s2) of
-                        Left rs -> Left $ Node rs ls
+                        Left rs -> Left $ (Level (a_v ++ l, s_v ++ ss) (Node rs ls))
                         Right interpret -> Right interpret
                     Right interpret -> Right interpret
 
@@ -56,7 +56,7 @@ module Deduce where
             [(left1,right1), (left2,right2)] ->
                 case unapply (a_v ++ na_v1) na_s1 (s_v ++ ns_v1) (ss ++ ns_s1) of
                     Left ls -> case unapply (a_v ++ na_v2) na_s2 (s_v ++ ns_v2) (ss ++ ns_s2) of
-                        Left rs -> Left $ Node rs ls
+                        Left rs -> Left $ (Level (a_v, s_v ++ l) (Node rs ls))
                         Right interpret -> Right interpret
                     Right interpret -> Right interpret
 

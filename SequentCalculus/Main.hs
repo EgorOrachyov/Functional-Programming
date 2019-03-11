@@ -6,7 +6,7 @@ module Main where
     import Visual
 
     f :: Term String
-    f = ((Var "p" :& Var "q") :=> (Var "z" :| (Not (Var "z"))))
+    f = (Var "a" :=> Var "b" :=> Var "c") :=> (Var "a" :=> Var "b") :=> (Var "a" :=> Var "c")
 
     main :: IO ()
     main = visual f

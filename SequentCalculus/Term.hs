@@ -7,11 +7,11 @@ module Term (Term(..)) where
                 | (Term a) :|  (Term a)
                 deriving (Eq)
 
-    infixr 9 :=>
+    infixr 0 :=>
 
     instance (Show a) => Show (Term a) where
         show (Var a)   = show a
         show (Not t)   = "¬(" ++ (show t) ++ ")"
-        show (a :=> b) = (show a) ++ " ⇒ " ++ (show b)
-        show (a :&  b) = (show a) ++ " ∧ " ++ (show b)
-        show (a :|  b) = (show a) ++ " ∨ " ++ (show b)
+        show (a :=> b) = "(" ++ (show a) ++ " ⇒ " ++ (show b) ++ ")"
+        show (a :&  b) = "(" ++ (show a) ++ " ∧ " ++ (show b) ++ ")"
+        show (a :|  b) = "(" ++ (show a) ++ " ∨ " ++ (show b) ++ ")"

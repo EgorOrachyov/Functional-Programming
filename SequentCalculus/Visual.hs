@@ -28,7 +28,7 @@ module Visual (visual)  where
         outputbyline xs move 
     outputbyline (Node left right) move = do
         outputbyline left ("+-" ++ move) 
-        putStrLn " -- variant -- "  
+        putStrLn ("+-" ++ move ++ "variant")
         outputbyline right ("+-" ++ move)     
 
     showterms :: (Show a) => [Term a] -> IO ()
