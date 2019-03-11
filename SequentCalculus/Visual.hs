@@ -8,9 +8,16 @@ module Visual (visual)  where
 
     visual :: (Show a, Eq a) => Term a -> IO ()
     visual t = do
+        putStr "Input: "
+        putStrLn . show $ t
         case deduce t of
-            Left sequents -> outputbyline sequents "+ "
-            Right interpretation -> print interpretation
+            Left sequents -> do
+                putStrLn "Answer: tautology"
+                outputbyline sequents "+ "
+            Right interpretation -> do
+                putStrLn "Answer: not a tautology"
+                putStr "Interpretation: "
+                putStrLn . show $ interpretation
 
     outputbyline :: (Show a) => Output a -> String-> IO ()
     outputbyline (Leaf (left,right)) move = do
