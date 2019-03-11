@@ -10,6 +10,11 @@ module Sequent where
     type Sequent a = ([Term a], [Term a])
     type Rule a = Term a -> [ Sequent a ]
 
+    data Output a = Leaf (Sequent a)
+                | Node (Output a) (Output a)
+                | Level (Sequent a) (Output a)
+                deriving (Show)
+
     -- Axiom for sequent calculus
 
     axiom :: (Eq a) => Term a -> Term a -> Bool

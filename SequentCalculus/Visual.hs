@@ -1,4 +1,4 @@
-module Visual (visual) where
+module Visual (visual)  where
 
     import Term
     import Deduce
@@ -9,17 +9,27 @@ module Visual (visual) where
     visual :: (Show a, Eq a) => Term a -> IO ()
     visual t = do
         case deduce t of
-            Left sequents -> outputbyline sequents
+            Left sequents -> outputbyline sequents "+ "
             Right interpretation -> print interpretation
 
-    outputbyline :: (Show a) => [Sequent a] -> IO ()
-    outputbyline [] = do putStrLn ""
-    outputbyline ((left,right):xs) = do
+    outputbyline :: (Show a) => Output a -> String-> IO ()
+    outputbyline (Leaf (left,right)) move = do
+        putStr move
         showterms left
         putStr " ⊢ "
         showterms right
         putStrLn ""
-        outputbyline xs
+    outputbyline (Level (left,right) xs) move = do
+        putStr move
+        showterms left
+        putStr " ⊢ "
+        showterms right
+        putStrLn ""
+        outputbyline xs move 
+    outputbyline (Node left right) move = do
+        outputbyline left ("+-" ++ move) 
+        putStrLn " -- variant -- "  
+        outputbyline right ("+-" ++ move)     
 
     showterms :: (Show a) => [Term a] -> IO ()
     showterms [] = putStr ""
